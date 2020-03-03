@@ -5,6 +5,11 @@ import java.util.List;
 
 public class FIilterAppleUsingBehaviorParameter {
 
+	/**
+	 * @param args
+	 */
+	 	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<AppleBean> appleList=new ArrayList<AppleBean>();
@@ -14,6 +19,7 @@ public class FIilterAppleUsingBehaviorParameter {
         appleList.add(new AppleBean(190,ENUMCOLOR.RED));
 //        Implementing Behaviour Parameterization using interface
         List<AppleBean> resultAppleBean=filterApple(appleList,new AppleHeavyWieghtRedPredicate());
+      System.out.println("Filtering using Predicate Interface");
         for(AppleBean apple:resultAppleBean ) {
         	System.out.println(apple);
         }
@@ -23,7 +29,14 @@ public class FIilterAppleUsingBehaviorParameter {
         		return appleBean.getWeight()>100 && appleBean.getColor().equals(ENUMCOLOR.GREEN);
         	}
         });
+        System.out.println("Filtering using Anonymous class");
         for(AppleBean apple:resultAnonymousAppleBean ) {
+        	System.out.println(apple);
+        }
+//        Filtering using Lambda Expression
+        List<AppleBean> lambdaAppleBean=filterApple(appleList,(AppleBean a)->a.getWeight()>170);
+        System.out.println("Filtering using Lambda Expression");
+        for(AppleBean apple:lambdaAppleBean ) {
         	System.out.println(apple);
         }
 	}

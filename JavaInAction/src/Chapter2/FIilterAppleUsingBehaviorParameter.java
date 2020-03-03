@@ -12,8 +12,18 @@ public class FIilterAppleUsingBehaviorParameter {
         appleList.add(new AppleBean(160,ENUMCOLOR.GREEN));
         appleList.add(new AppleBean(170,ENUMCOLOR.RED));
         appleList.add(new AppleBean(190,ENUMCOLOR.RED));
+//        Implementing Behaviour Parameterization using interface
         List<AppleBean> resultAppleBean=filterApple(appleList,new AppleHeavyWieghtRedPredicate());
         for(AppleBean apple:resultAppleBean ) {
+        	System.out.println(apple);
+        }
+        //Removing the code verbosity using Anonymous class instead of creating Concrete class of predicate interface
+        List<AppleBean> resultAnonymousAppleBean=filterApple(appleList,new ApplePredicate() {
+        	public boolean test(AppleBean appleBean) {
+        		return appleBean.getWeight()>100 && appleBean.getColor().equals(ENUMCOLOR.GREEN);
+        	}
+        });
+        for(AppleBean apple:resultAnonymousAppleBean ) {
         	System.out.println(apple);
         }
 	}

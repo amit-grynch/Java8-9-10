@@ -48,7 +48,8 @@ public class SortingAppleUsingLamba {
 
 		// sorting using inbuilt method and Lambda Expression class and Iterating sorted
 		// List
-		Collections.sort(appleList, (Apple a1, Apple a2) -> a1.getWeigth() - a2.getWeigth());
+		Comparator<Apple> sortByWeigth=(Apple a1, Apple a2) -> a1.getWeigth() - a2.getWeigth();
+		Collections.sort(appleList, sortByWeigth);
 		Iterator<Apple> sortedAppleItrator3 = appleList.iterator();
 		System.out.println("Printing the Apple in sorted way using Using Lambda Expression");
 		while (sortedAppleItrator3.hasNext()) {

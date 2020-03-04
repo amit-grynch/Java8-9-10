@@ -23,8 +23,7 @@ public class SortingAppleUsingLamba {
 		while (appleItrator.hasNext()) {
 			System.out.println(appleItrator.next());
 		}
-		
-		
+
 		// sorting using inbuilt method and Iterating sorted List
 		Collections.sort(appleList, new AppleComparator());
 		Iterator<Apple> sortedAppleItrator1 = appleList.iterator();
@@ -46,14 +45,15 @@ public class SortingAppleUsingLamba {
 		while (sortedAppleItrator2.hasNext()) {
 			System.out.println(sortedAppleItrator2.next());
 		}
-		
-		// sorting using inbuilt method and Lambda Expression class and Iterating sorted List
-				Collections.sort(appleList, (Apple a1,Apple a2)->a1.getWeigth()-a2.getWeigth());
-				Iterator<Apple> sortedAppleItrator3 = appleList.iterator();
-				System.out.println("Printing the Apple in sorted way using Using Lambda Expression");
-				while (sortedAppleItrator3.hasNext()) {
-					System.out.println(sortedAppleItrator3.next());
-				}
+
+		// sorting using inbuilt method and Lambda Expression class and Iterating sorted
+		// List
+		Collections.sort(appleList, (Apple a1, Apple a2) -> a1.getWeigth() - a2.getWeigth());
+		Iterator<Apple> sortedAppleItrator3 = appleList.iterator();
+		System.out.println("Printing the Apple in sorted way using Using Lambda Expression");
+		while (sortedAppleItrator3.hasNext()) {
+			System.out.println(sortedAppleItrator3.next());
+		}
 	}
 
 }
@@ -75,7 +75,7 @@ class Apple {
 
 	@Override
 	public String toString() {
-		return "Apple :weigth=" + weigth ;
+		return "Apple :weigth=" + weigth;
 	}
 
 }

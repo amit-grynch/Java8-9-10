@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import static java.util.Comparator.comparing;
 
@@ -22,20 +23,20 @@ public class MethodReferences {
 		 */
 		List<AppleBean> appleList = new ArrayList<>();
 
-		Function<Integer, AppleBean> appleBeanFun11 = (weigth) -> new AppleBean(weigth);
-		AppleBean appleBean1 = appleBeanFun11.apply(200);
+		BiFunction<Integer,String, AppleBean> appleBeanFun11 = (weigth,country) -> new AppleBean(weigth,country);
+		AppleBean appleBean1 = appleBeanFun11.apply(200,"India");
 
-		Function<Integer, AppleBean> appleBeanFun22 = (weight) -> new AppleBean(weight);
-		AppleBean appleBean2 = appleBeanFun22.apply(100);
+		BiFunction<Integer,String, AppleBean> appleBeanFun22 = (weight,country) -> new AppleBean(weight,country);
+		AppleBean appleBean2 = appleBeanFun22.apply(200,"USA");
 
-		Function<Integer, AppleBean> appleBeanFun33 = (weight) -> new AppleBean(weight);
-		AppleBean appleBean3 = appleBeanFun33.apply(250);
+		BiFunction<Integer,String, AppleBean> appleBeanFun33 = (weight,country) -> new AppleBean(weight,country);
+		AppleBean appleBean3 = appleBeanFun33.apply(250,"SriLanka");
 
-		Function<Integer, AppleBean> appleBeanFun44 = (weight) -> new AppleBean(weight);
-		AppleBean appleBean4 = appleBeanFun44.apply(190);
+		BiFunction<Integer,String, AppleBean> appleBeanFun44 = (weight,country) -> new AppleBean(weight,country);
+		AppleBean appleBean4 = appleBeanFun44.apply(190,"China");
 
-		Function<Integer, AppleBean> appleBeanFun55 = (weight) -> new AppleBean(weight);
-		AppleBean appleBean5 = appleBeanFun55.apply(290);
+		BiFunction<Integer,String, AppleBean> appleBeanFun55 = (weight,String) -> new AppleBean(weight,String);
+		AppleBean appleBean5 = appleBeanFun55.apply(290,"Russia");
 		appleList.add(appleBean1);
 		appleList.add(appleBean2);
 		appleList.add(appleBean3);
@@ -62,15 +63,44 @@ public class MethodReferences {
 		while (appleItrator2.hasNext()) {
 			System.out.println(appleItrator2.next());
 		}
+		
+		 // Reverse the Order of Apple List in Descending Order
+		System.out.println("Printng the AppleList in Descending Order");
+		Collections.sort(appleList,(Comparator.comparing(AppleBean::getWeigth)).reversed());
+		Iterator<AppleBean> appleItrator3 = appleList.iterator();
+		while (appleItrator3.hasNext()) {
+			System.out.println(appleItrator3.next());
+		}
+		
+		//Sort the Apple if weight of two apples are same then sort by country
+		
+		System.out.println("Printng the AppleList in weight and Country Order");
+		Collections.sort(appleList,(Comparator.comparing(AppleBean::getWeigth)).thenComparing(AppleBean::getCountry));
+		Iterator<AppleBean> appleItrator4 = appleList.iterator();
+		while (appleItrator4.hasNext()) {
+			System.out.println(appleItrator4.next());
+		}
 	}
+	
+  
+	
 
 }
 
 class AppleBean {
 	int weigth;
-
-	public AppleBean(int weigth) {
+    String country;
+	public AppleBean(int weigth,String country) {
 		this.weigth = weigth;
+		this.country=country;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public int getWeigth() {
@@ -83,7 +113,7 @@ class AppleBean {
 
 	@Override
 	public String toString() {
-		return "Apple :weigth=" + weigth;
+		return "Apple :weigth=" + weigth + " "+ "Country= " + country;
 	}
 
 }

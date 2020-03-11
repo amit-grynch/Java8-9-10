@@ -26,6 +26,11 @@ public class StreamReductionOperation {
 				Optional<Integer> maxValue1=numbers.stream().reduce((x,y)->x>y?x:y);
 				Optional<Integer> minValue1=numbers.stream().reduce((x,y)->x<y?x:y);
 				System.out.println("Max Value1="+maxValue1.get() +" "+"MinValue1="+minValue1.get());
+				
+		//Counting the Element in Stream
+		int count=numbers.stream().map(d->1).reduce(0, (a,b)->a+b);
+		System.out.println(count);
+		System.out.println(numbers.stream().count());
 
 	}
 

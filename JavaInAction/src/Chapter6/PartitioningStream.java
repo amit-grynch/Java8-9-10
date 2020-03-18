@@ -13,7 +13,7 @@ public class PartitioningStream {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		TetraFunction<String, Integer, TYPE, Boolean, Dishes> dishes1 = (name, calories, type,
 				isVegetrain) -> new Dishes(name, calories, type, isVegetrain);
 		Dishes dishObj1 = dishes1.apply("pork", 800, TYPE.MEAT, false);
@@ -60,13 +60,15 @@ public class PartitioningStream {
 		dishesList.add(dishObj7);
 		dishesList.add(dishObj8);
 		dishesList.add(dishObj9);
-		
-		  Map<Boolean,List<String>> classificationOfMenu=dishesList.stream().collect(partitioningBy(Dishes::isVegetrain,mapping(Dishes::getName,toList())));
-		  classificationOfMenu.forEach((Boolean,List)->System.out.println(Boolean+" "+List));
-		  
-		  //Using Overloaded PartioingBy method which takes Collector as argument
-		         Map<Boolean,Map<TYPE,List<String>>> menuPartionBasedOnType=dishesList.stream().collect(partitioningBy(Dishes::isVegetrain,groupingBy(Dishes::getType,mapping(Dishes::getName, toList()))));
-		           menuPartionBasedOnType.forEach((Boolean,Map)->System.out.println(Boolean+" "+Map));
+
+		Map<Boolean, List<String>> classificationOfMenu = dishesList.stream()
+				.collect(partitioningBy(Dishes::isVegetrain, mapping(Dishes::getName, toList())));
+		classificationOfMenu.forEach((Boolean, List) -> System.out.println(Boolean + " " + List));
+
+		// Using Overloaded PartioingBy method which takes Collector as argument
+		Map<Boolean, Map<TYPE, List<String>>> menuPartionBasedOnType = dishesList.stream().collect(
+				partitioningBy(Dishes::isVegetrain, groupingBy(Dishes::getType, mapping(Dishes::getName, toList()))));
+		menuPartionBasedOnType.forEach((Boolean, Map) -> System.out.println(Boolean + " " + Map));
 
 	}
 

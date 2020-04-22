@@ -11,8 +11,8 @@ public class ForkJoinFramework {
 		// TODO Auto-generated method stub
 		long[] longArray = LongStream.rangeClosed(1, 1000).toArray();
 		ForkJoinTask<Long> task = new ForkJoinSumCalculator(longArray);
-	long sum=new ForkJoinPool().invoke(task);
-	System.out.println(sum);
+		long sum = new ForkJoinPool().invoke(task);
+		System.out.println(sum);
 	}
 
 }

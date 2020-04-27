@@ -23,10 +23,41 @@ public class OptionalObjectCreation {
 		person3.setCar(car3);
 		car1.setInsurance(insurance1);
 		car2.setInsurance(insurance2);
-		System.out.println(" Insurance Company Name is : "+getCarInsuranceName(person4));
+		System.out.println(" Insurance Company Name is : " + getCarInsuranceNamev3(person4));
 
 	}
-     public static String getCarInsuranceName(Person person) {
-    	   return  person.getCar().getInsurance().getName();
-     }
+
+	public static String getCarInsuranceNamev1(Person person) {
+		return person.getCar().getInsurance().getName();
+	}
+
+	public static String getCarInsuranceNamev2(Person person) {
+		if (person != null) {
+			Car car = person.getCar();
+			if (car != null) {
+				Insurance insurance = car.getInsurance();
+				if (insurance != null) {
+					String name = insurance.getName();
+					return name;
+				}
+			}
+		}
+
+		return "UnKnown";
+	}
+
+	public static String getCarInsuranceNamev3(Person person) {
+		if (person == null) {
+			return "UnKnown";
+		}
+		Car car = person.getCar();
+		if (car == null) {
+			return "UnKnown";
+		}
+		Insurance insurance = car.getInsurance();
+		if (insurance == null) {
+			return "UnKnown";
+		}
+		return (insurance.getName());
+	}
 }

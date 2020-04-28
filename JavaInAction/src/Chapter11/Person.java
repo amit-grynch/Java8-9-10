@@ -1,7 +1,9 @@
 package Chapter11;
 
+import java.util.Optional;
+
 public class Person {
-	private Car car;
+	private Optional<Car> car;
 	String name;
 	int age;
 
@@ -10,11 +12,11 @@ public class Person {
 		this.age = age;
 	}
 
-	public Car getCar() {
+	public Optional<Car> getCar() {
 		return car;
 	}
 
-	public void setCar(Car car) {
+	public void setCar(Optional<Car> car) {
 		this.car = car;
 	}
 

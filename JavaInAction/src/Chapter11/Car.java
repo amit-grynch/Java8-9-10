@@ -1,13 +1,15 @@
 package Chapter11;
 
-public class Car {
-	private Insurance insurance;
+import java.util.Optional;
 
-	public Insurance getInsurance() {
+public class Car {
+	private Optional<Insurance> insurance;
+
+	public Optional<Insurance> getInsurance() {
 		return insurance;
 	}
 
-	public void setInsurance(Insurance insurance) {
+	public void setInsurance(Optional<Insurance> insurance) {
 		this.insurance = insurance;
 	}
 

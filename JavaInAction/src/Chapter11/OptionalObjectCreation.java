@@ -18,46 +18,35 @@ public class OptionalObjectCreation {
 		Insurance insurance3 = new Insurance("AXA");
 		Insurance insurance4 = new Insurance("SBI");
 		Insurance insurance5 = new Insurance("AXIS");
-		person1.setCar(car1);
-		person2.setCar(car2);
-		person3.setCar(car3);
-		car1.setInsurance(insurance1);
-		car2.setInsurance(insurance2);
-		System.out.println(" Insurance Company Name is : " + getCarInsuranceNamev3(person4));
+		person1.setCar(Optional.ofNullable(car1));
+		person2.setCar(Optional.ofNullable(car2));
+		person3.setCar(Optional.ofNullable(car3));
+		car1.setInsurance(Optional.ofNullable(insurance1));
+		car1.setInsurance(Optional.ofNullable(insurance2));
+		System.out.println(" Insurance Company Name is : " + getCarInsuranceName(person4));
 
 	}
+	// Commented Methods are related to Old Style Programming without Optional
 
-	public static String getCarInsuranceNamev1(Person person) {
-		return person.getCar().getInsurance().getName();
-	}
+	/*
+	 * public static String getCarInsuranceNamev1(Person person) { return
+	 * person.getCar().getInsurance().getName(); }
+	 * 
+	 * public static String getCarInsuranceNamev2(Person person) { if (person !=
+	 * null) { Car car = person.getCar(); if (car != null) { Insurance insurance =
+	 * car.getInsurance(); if (insurance != null) { String name =
+	 * insurance.getName(); return name; } } }
+	 * 
+	 * return "UnKnown"; }
+	 * 
+	 * public static String getCarInsuranceNamev3(Person person) { if (person ==
+	 * null) { return "UnKnown"; } Car car = person.getCar(); if (car == null) {
+	 * return "UnKnown"; } Insurance insurance = car.getInsurance(); if (insurance
+	 * == null) { return "UnKnown"; } return (insurance.getName()); }
+	 */
 
-	public static String getCarInsuranceNamev2(Person person) {
-		if (person != null) {
-			Car car = person.getCar();
-			if (car != null) {
-				Insurance insurance = car.getInsurance();
-				if (insurance != null) {
-					String name = insurance.getName();
-					return name;
-				}
-			}
-		}
 
-		return "UnKnown";
-	}
-
-	public static String getCarInsuranceNamev3(Person person) {
-		if (person == null) {
-			return "UnKnown";
-		}
-		Car car = person.getCar();
-		if (car == null) {
-			return "UnKnown";
-		}
-		Insurance insurance = car.getInsurance();
-		if (insurance == null) {
-			return "UnKnown";
-		}
-		return (insurance.getName());
-	}
+  public static String getCarInsuranceName(Person person) {
+	  return "null";
+  }
 }

@@ -41,7 +41,7 @@ public class FilterApple {
 		}
 		return filterResult;
 	}
-}
+} 
 
 enum Color {
 	RED, GREEN

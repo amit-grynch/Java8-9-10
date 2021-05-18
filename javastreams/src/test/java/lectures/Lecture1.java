@@ -1,7 +1,5 @@
 package lectures;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import beans.Person;
 
 import com.google.common.collect.ImmutableList;
@@ -11,7 +9,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import mockdata.MockData;
-import org.assertj.core.util.Lists;
 import org.junit.Test;
 
 public class Lecture1 {

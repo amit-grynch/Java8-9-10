@@ -10,7 +10,10 @@ public class Lecture2 {
 
   @Test
   public void range() throws Exception {
-
+     System.out.println(" Using Iterative Apporoach ");
+     for(int i=0;i<10;i++) {
+    	 System.out.println(i);
+     }
   }
 
   @Test

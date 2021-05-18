@@ -10,10 +10,16 @@ public class Lecture2 {
 
   @Test
   public void range() throws Exception {
-     System.out.println(" Using Iterative Apporoach ");
-     for(int i=0;i<10;i++) {
-    	 System.out.println(i);
-     }
+      System.out.println(" Using Itertive Approach ");
+   for(int i=0;i<10;i++) {
+	   System.out.print(i+" ");
+   }
+   System.out.println("  ");
+   System.out.println(" Printing Exclusive Range ");
+   IntStream.range(0, 10).forEach(System.out::print);
+   System.out.println(" ");
+   System.out.println(" Printing Inclusive Range ");
+   IntStream.rangeClosed(0, 10).forEach(System.out::print);
   }
 
   @Test

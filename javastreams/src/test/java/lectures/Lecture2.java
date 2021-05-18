@@ -25,7 +25,13 @@ public class Lecture2 {
   @Test
   public void rangeIteratingLists() throws Exception {
     List<Person> people = MockData.getPeople();
-
+   System.out.println(" Printing Using IntStream ");
+		IntStream.range(0, people.size()).forEach(index -> {
+			Person person = people.get(index);
+			System.out.println(person);
+		});
+		System.out.println(" Printing Using ForEach ");
+		people.forEach(System.out::println);
   }
 
   @Test

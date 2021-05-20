@@ -8,6 +8,7 @@ public class StringConcatenation {
 		// TODO Auto-generated method stub
 		BiConsumer<String,String> biConsumer=(str1,str2)->System.out.println(str1+str2);
 		 biConsumer.accept("amit", "sharma");
+		 System.out.println("  ");
 
 	}
 

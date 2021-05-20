@@ -4,10 +4,11 @@ import java.util.function.BiFunction;
 
 public class StudentObjectCreation {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
 		BiFunction<String, Integer, Student> biFunction = (name, roll) -> new Student(name, roll);
 		System.out.println(biFunction.apply("amit", 10));
+		System.out.println(" ");
 	}
 
 }

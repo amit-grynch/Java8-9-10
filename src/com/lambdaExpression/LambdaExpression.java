@@ -8,6 +8,7 @@ import java.util.Comparator;
 		// TODO Auto-generated method stub
       Comparator<String> comparator=(str1, str2)->  Integer.compare(str1.length(), str2.length());
       System.out.println(comparator.compare("amit","kumar"));
+      System.out.println(" Adding Log    ");
 	}
 
 

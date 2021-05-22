@@ -16,6 +16,8 @@ public class PredicateExample {
 		System.out.println(" Implementing Predicate Using Java 8");
 		Predicate<String> stringPredicate = str -> str.length() > 5;
 		System.out.println(stringPredicate.test("amitkumarsharma"));
+		System.out.println();
+		System.out.println();
 		
 	}
 

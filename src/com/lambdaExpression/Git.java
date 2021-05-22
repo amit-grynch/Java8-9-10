@@ -1,6 +1,6 @@
 package com.lambdaExpression;
 
-public class Test {
+public class Git {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

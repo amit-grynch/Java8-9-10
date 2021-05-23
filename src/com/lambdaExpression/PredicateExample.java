@@ -17,7 +17,7 @@ public class PredicateExample {
 		Predicate<String> stringPredicate = str -> str.length() > 5;
 		System.out.println(stringPredicate.test("amitkumarsharma"));
 		System.out.println("amit");
-		System.out.println();
+		System.out.println("Stash Example");
 		
 	}
 
